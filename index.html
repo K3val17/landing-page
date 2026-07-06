@@ -1,496 +1,501 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Keval Patel — Selected Work</title>
+<meta name="description" content="A builder's portfolio: exactly-once engines, agentic research brains, quantitative trading tools, and a South-African healthcare data platform. Systems built to be provably right." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B0E14; --panel:#10151E; --panel-2:#161D29; --line:#232C3A; --line-2:#2E3A4C;
+    --text:#E7EDF5; --muted:#8B99AB; --faint:#5D6B7D;
+    --gold:#E8B23A; --gold-dim:#B98A2A;
+    --cyan:#2896B0; --cyan-lit:#4CC9E0; --violet:#7E63CC; --green:#33A46E; --coral:#D25A46;
+    --grid:rgba(140,160,185,.045);
+    --card-grad:linear-gradient(180deg,var(--panel-2),var(--panel));
+    --readout-grad:linear-gradient(180deg,rgba(22,29,41,.55),rgba(16,21,30,.35));
+    --nav-bg:rgba(11,14,20,.72);
+    --display:"Space Grotesk",system-ui,sans-serif;
+    --body:"IBM Plex Sans",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+    --maxw:1120px;
+  }
+  :root[data-theme="light"]{
+    --ink:#F6F4EE; --panel:#FFFFFF; --panel-2:#FBFAF6; --line:#E4DFD4; --line-2:#D3CDBF;
+    --text:#181C22; --muted:#5C6672; --faint:#8A93A0;
+    --gold:#B5852A; --gold-dim:#9A6F1E;
+    --cyan:#2B7E96; --cyan-lit:#1E6C86; --violet:#6A4FB8; --green:#2C8A5C; --coral:#C0523F;
+    --grid:rgba(60,70,90,.05);
+    --card-grad:linear-gradient(180deg,#FFFFFF,#FBFAF5);
+    --readout-grad:linear-gradient(180deg,#FFFFFF,#FAF8F2);
+    --nav-bg:rgba(246,244,238,.8);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--ink);color:var(--text);font-family:var(--body);
+    font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:34px 34px;transition:background-color .4s,color .4s;
+  }
+  a{color:inherit;text-decoration:none}
+  ::selection{background:rgba(232,178,58,.25);color:var(--text)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .mono{font-family:var(--mono)}
+  .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500}
+  .muted{color:var(--muted)}
+  h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.01em;margin:0}
 
-    <head>
-        <meta charset="utf-8">
-        <title>Keval Patel</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="" name="keywords">
-        <meta content="" name="description">
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);
+    background:var(--nav-bg);border-bottom:1px solid var(--line);transition:background-color .4s,border-color .4s}
+  .nav-in{max-width:var(--maxw);margin:0 auto;padding:13px 24px;display:flex;align-items:center;gap:22px}
+  .logo{font-family:var(--mono);font-weight:600;letter-spacing:.04em;font-size:15px;color:var(--text)}
+  .logo b{color:var(--gold)}
+  .nav-links{display:flex;gap:22px;margin-left:auto}
+  .nav-links a{font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--muted);transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  .toggle{margin-left:18px;width:34px;height:34px;border:1px solid var(--line-2);border-radius:8px;background:transparent;
+    color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;font-size:15px}
+  .toggle:hover{border-color:var(--gold);color:var(--gold)}
+  @media(max-width:860px){.nav-links{display:none}.toggle{margin-left:auto}}
 
-        <!-- Google Web Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Edu+TAS+Beginner:wght@400..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  /* hero */
+  .hero{position:relative;padding:74px 0 34px;overflow:hidden}
+  #scope{position:absolute;inset:0;width:100%;height:100%;opacity:.5;pointer-events:none}
+  .hero-in{position:relative;z-index:2}
+  .hero h1{font-size:clamp(40px,7.6vw,96px);line-height:.95;letter-spacing:-.03em;font-weight:700;margin:14px 0 0}
+  .hero-sub{max-width:680px;margin:22px 0 0;font-size:clamp(16px,2vw,19px);color:var(--muted)}
+  .hero-sub b{color:var(--text);font-weight:500}
+  .roles{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+  .role{font-family:var(--mono);font-size:12px;letter-spacing:.04em;padding:6px 13px;border:1px solid var(--line-2);border-radius:20px;color:var(--text)}
+  .role b{color:var(--gold);font-weight:600}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+  .btn{font-family:var(--mono);font-size:13px;letter-spacing:.02em;padding:11px 18px;border:1px solid var(--line-2);border-radius:7px;
+    color:var(--text);transition:.2s;display:inline-flex;align-items:center;gap:8px}
+  .btn:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-1px)}
+  .btn.solid{background:var(--gold);color:#1a1205;border-color:var(--gold);font-weight:600}
+  .btn.solid:hover{filter:brightness(1.08)}
 
-        <!-- Icon Font Stylesheet -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+  /* readouts */
+  .readouts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:46px;border:1px solid var(--line);
+    border-radius:10px;background:var(--readout-grad);overflow:hidden}
+  .ro{padding:18px 16px;border-right:1px solid var(--line)}
+  .ro:last-child{border-right:0}
+  .ro .k{font-family:var(--display);font-weight:600;font-size:clamp(20px,2.4vw,29px);color:var(--text);letter-spacing:-.01em;line-height:1}
+  .ro .k .u{color:var(--gold);font-size:.62em}
+  .ro .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-top:9px}
 
-        <!-- Libraries Stylesheet -->
-        <link rel="stylesheet" href="lib/animate/animate.min.css"/>
-        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  section{padding:64px 0;position:relative;scroll-margin-top:70px}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:30px;flex-wrap:wrap}
+  .sec-idx{font-family:var(--mono);font-size:12.5px;color:var(--gold-dim);letter-spacing:.12em}
+  .sec-head h2{font-size:clamp(24px,4vw,38px);letter-spacing:-.02em}
+  .sec-head .note{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--faint);max-width:340px;text-align:right}
+  .divider{height:1px;background:var(--line);width:100%}
+  a:focus-visible,.chip:focus-visible,.btn:focus-visible,.toggle:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
 
+  /* featured */
+  .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .feat{border:1px solid var(--line);border-radius:14px;background:var(--card-grad);padding:26px;position:relative;overflow:hidden;transition:.35s cubic-bezier(.2,.7,.3,1)}
+  .feat:hover{border-color:var(--gold-dim);transform:translateY(-3px)}
+  .feat::before{content:"";position:absolute;left:0;top:0;height:100%;width:3px;background:linear-gradient(180deg,var(--gold),transparent)}
+  .feat .badge{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+  .feat .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(51,164,110,.6);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(51,164,110,.5)}70%{box-shadow:0 0 0 7px rgba(51,164,110,0)}100%{box-shadow:0 0 0 0 rgba(51,164,110,0)}}
+  .feat h3{font-size:26px;letter-spacing:-.01em}
+  .feat .p-tag{font-family:var(--mono);font-size:12.5px;color:var(--cyan-lit);margin-top:4px}
+  .feat p.desc{font-size:15px;color:var(--muted);margin:14px 0 0;line-height:1.6}
+  .feat .metrics{display:flex;gap:20px;flex-wrap:wrap;margin-top:18px}
+  .feat .metric .mv{font-family:var(--display);font-weight:600;font-size:19px;color:var(--text)}
+  .feat .metric .ml{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);margin-top:2px}
 
-        <!-- Customized Bootstrap Stylesheet -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+  /* projects */
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+  .chip{font-family:var(--mono);font-size:12px;letter-spacing:.03em;padding:7px 14px;border:1px solid var(--line);border-radius:20px;
+    color:var(--muted);cursor:pointer;transition:.18s;background:transparent}
+  .chip:hover{color:var(--text);border-color:var(--line-2)}
+  .chip.on{background:var(--gold);color:#1a1205;border-color:var(--gold);font-weight:600}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .card{border:1px solid var(--line);border-radius:12px;background:var(--card-grad);
+    padding:22px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:.35s cubic-bezier(.2,.7,.3,1)}
+  .card:hover{border-color:var(--line-2);transform:translateY(-3px)}
+  .card::after{content:"";position:absolute;left:0;top:0;height:2px;width:100%;background:linear-gradient(90deg,var(--gold),transparent);
+    transform:scaleX(0);transform-origin:left;transition:transform .4s}
+  .card:hover::after{transform:scaleX(1)}
+  .card.flag-hidden{display:none}
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+  .p-idx{font-family:var(--mono);font-size:11.5px;color:var(--gold-dim);letter-spacing:.1em}
+  .p-domain{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);
+    border:1px solid var(--line);border-radius:5px;padding:3px 8px}
+  .card h3{font-size:22px;margin:12px 0 0;letter-spacing:-.01em}
+  .card .p-tag{font-family:var(--mono);font-size:12px;color:var(--cyan-lit);margin-top:3px}
+  .card p.desc{font-size:14.5px;color:var(--muted);margin:11px 0 0;line-height:1.55}
+  .viz{margin:18px 0 4px;height:96px;width:100%;border:1px solid var(--line);border-radius:8px;background:rgba(8,11,17,.05);
+    position:relative;overflow:hidden}
+  .viz svg,.viz canvas{display:block;width:100%;height:100%}
+  .viz .vlabel{position:absolute;top:8px;left:10px;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .viz .vbig{position:absolute;bottom:8px;right:11px;font-family:var(--mono);font-weight:600;font-size:14px;color:var(--text)}
+  .viz .vbig .u{color:var(--gold);font-size:.72em}
+  .metrics{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px}
+  .metric .mv{font-family:var(--display);font-weight:600;font-size:17px;color:var(--text)}
+  .metric .ml{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);margin-top:2px}
+  .stack{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px}
+  .stack span{font-family:var(--mono);font-size:11px;color:var(--muted);background:rgba(140,160,185,.06);border:1px solid var(--line);
+    border-radius:5px;padding:3px 8px}
+  .card-links{margin-top:16px;display:flex;gap:14px;font-family:var(--mono);font-size:12px;align-items:center}
+  .card-links a{color:var(--cyan-lit);border-bottom:1px solid transparent;transition:.2s}
+  .card-links a:hover{border-color:var(--cyan-lit)}
+  .card-links .ff{color:var(--faint)}
 
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
-    </head>
+  footer{border-top:1px solid var(--line);padding:60px 0 50px;margin-top:20px}
+  .foot-cta{font-family:var(--display);font-weight:600;font-size:clamp(26px,5vw,48px);letter-spacing:-.02em;line-height:1.04}
+  .foot-cta a{color:var(--gold);border-bottom:2px solid transparent;transition:.2s}
+  .foot-cta a:hover{border-color:var(--gold)}
+  .foot-links{display:flex;gap:22px;flex-wrap:wrap;margin-top:26px;font-family:var(--mono);font-size:13px;color:var(--muted)}
+  .foot-links a{border-bottom:1px solid var(--line-2);padding-bottom:2px;transition:.2s}
+  .foot-links a:hover{color:var(--gold);border-color:var(--gold)}
+  .foot-meta{font-family:var(--mono);font-size:11.5px;color:var(--faint);margin-top:34px}
 
-    <body>
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+  .rv.in{opacity:1;transform:none}
 
-        <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-        <!-- Spinner End -->
+  @media(max-width:860px){
+    .readouts{grid-template-columns:repeat(2,1fr)}
+    .ro:nth-child(2){border-right:0}.ro:nth-child(1),.ro:nth-child(2){border-bottom:1px solid var(--line)}
+    .grid,.feat-grid{grid-template-columns:1fr}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .rv{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
 
-
-        <!-- Navbar Start -->
-        <div class="container-fluid nav-section border-0">
-            <nav class="navbar navbar-light">
-                <div class="navbar-nav flex-column">
-                    <a href="#pigraHome" class="nav-item nav-link active"><span class="fa fa-home"></span> Home</a>
-                    <a href="#Education" class="nav-item nav-link"><span class="far fa-address-card"></span> Education</a>
-                    <a href="#Experience" class="nav-item nav-link"><span class="fab fa-servicestack"></span> Experience</a>
-                    <a href="#Skills" class="nav-item nav-link"><span class="fa fa-blog"></span> Skills</a>
-                    <a href="#pigraContact" class="nav-item nav-link"><span class="fas fa-address-book"></span> Contact</a>
-                </div>
-            </nav>
-        </div>
-        <!-- Navbar End -->
-
-        <!-- Header Start -->
-        <div class="container-fluid" id="pigraHome">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-12 col-lg-3">
-                        <div class="header-content bg-dark h-100 pt-6 pe-6 pb-6">
-                            <a href="index.html" class="navbar-brand d-inline-flex pb-5 wow fadeInUp" data-wow-delay="0.1s">
-                                <h1 class="display-6 text-white mb-0">Keval Patel</h1>
-                            </a>
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.3s">
-                                <p class="text-white sub-title">Student based in South Africa & The United States</p>
-                                <h1 class="display-6 text-white mb-0"></h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-9">
-                        <div class="header-img d-flex h-100 pt-6 ps-6 pb-6">
-                            <div class="row g-5">
-                                <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.1s">
-                                    <div class="bg-light p-4" style="border-radius: 68% 32% 100% 0% / 0% 75% 25% 100%;">
-                                        <img src="img/IMG_7563.jpg" class="img-fluid w-100" style="border-radius: 68% 32% 100% 0% / 0% 75% 25% 100%;" alt="Image">
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.3s">
-                                    <h1 class="display-6 mb-4">Aspiring Computer Science, Economics and Applied Mathematics major</h1>
-                                    <p class="mb-4">Hello! I am a first-year Computer Science student passionate about exploring the future of computing within artificial intelligence, robotics, cybersecurity, and data science. I am driven by the idea of leveraging technology to revolutionize Education, Financing, and Healthcare.
-                                    </p>
-                                    <div class="d-flex align-items-center mb-2">
-                                        <i class="fas fa-map-marker-alt text-primary me-3"></i>
-                                        <p class="text-dark mb-0">Johannesburg and Boston</p>
-                                    </div>
-                                    <div class="d-flex align-items-center mb-2">
-                                        <i class="fas fa-envelope text-primary me-3"></i>
-                                        <p class="text-dark mb-0">keval70711@gmail.com</p>
-                                    </div>
-                                    <div class="d-flex align-items-center mb-2">
-                                        <i class="fa fa-phone-alt text-primary me-3"></i>
-                                        <p class="text-dark mb-0">+27 65 232 1746</p>
-                                    
-                                    </div>
-                                    <!-- Social Media Links -->
-<div class="d-flex">
-    <!-- LinkedIn Button -->
-    <a class="btn btn-primary btn-sm-square me-3" href="https://www.linkedin.com/in/keval-patel-01965a17b/" target="_blank">
-        <i class="fab fa-linkedin-in text-white"></i>
-    </a>
-
-    <!-- Instagram Button -->
-    <a class="btn btn-primary btn-sm-square me-3" href="https://www.instagram.com/_.kevalll._?igsh=MTZ3bzA5cm16NnF6dg%3D%3D&utm_source=qr" target="_blank">
-        <i class="fab fa-instagram text-white"></i>
-    </a>
-
-    <!-- GitHub Button -->
-    <a class="btn btn-primary btn-sm-square me-0" href="https://github.com/K3val17" target="_blank">
-        <i class="fab fa-github text-white"></i>
-    </a>
-</div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Header End -->
-
-
-   
-
-
-        <!-- Education Start -->
-        <div class="container-fluid" id="Education">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-lg-3">
-                        <div class="education-header bg-dark h-100 pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                                <p class="text-white sub-title">Education</p>
-                                <h1 class="display-6 text-white mb-0">My educational background</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="education-content h-100 pt-6 ps-6 pb-6">
-                            <div class="row g-4">
-                                <div class="col-12">
-                                    <div class="education-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.1s">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <p class="fs-5 mb-0 me-4">Brandeis University</p>
-                                            <div>
-                                                <span class="fa fa-calendar me-1"></span> 2024 - 2028
-                                            </div>
-                                        </div>
-                                        <h4 class="mb-3">Bachelors Degree: Planning to Major in Computer Science, Applied Mathematics, and Economics</h4>
-                                        <p class="mb-0">I plan to join the Brandeis TAMID, Robotics Club, Entrepreneurship & Tech Club, Quant Club, Investment Club, Aviation Club, Innovation Programs and Consulting Club.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="education-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.3s">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <p class="fs-5 mb-0 me-4">Greenside High School</p>
-                                            <div>
-                                                <span class="fa fa-calendar me-1"></span> 2019 - 2023
-                                            </div>
-                                        </div>
-                                        <h4 class="mb-3">High School Diploma: National Senior Certificate South Africa</h4>
-                                        <p class="mb-0"> <li>Achieved an academic aggregate of 90% in Grade 12 with 8 distinctions</li>
-                                            <li>Scored 1540 on the SAT (800 Math, 740 EBRW)</li>
-                                            <li>Accepted to Purdue University, University of Toronto, McGill University, University of Melbourne, University of Waterloo, and Brandeis University for Computer Science</li>
-                                            <li>Awarded Full Colors in Cricket, Academic Honors and Service</li>
-                                            <li>Grade Head of the Representative Council of Learners</li>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Education End -->
-
-       <!-- Experience Start -->
-<div class="container-fluid" id="Experience">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-lg-3">
-                <div class="experience-header bg-dark h-100 pt-6 pe-6 pb-6">
-                    <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                        <p class="text-white sub-title">Experience</p>
-                        <h1 class="display-6 text-white mb-0">My Real Work Experience</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="experience-content h-100 pt-6 ps-6 pb-6">
-                    <div class="row g-4">
-                        <!-- Experience Item 1 -->
-                        <div class="col-12">
-                            <div class="experience-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="d-flex align-items-center mb-3">
-                                    <p class="fs-5 mb-0 me-4">Software Engineering Fellow</p>
-                                    <div>
-                                        <span class="fa fa-calendar me-1"></span> Jul '24 - Sep '24
-                                    </div>
-                                </div>
-                                <h4 class="mb-3">Headstarter AI</h4>
-                                <p class="mb-0">
-                                    Collaborated within the innovative team at Headstarter AI to drive the development of 5 cutting-edge AI-powered projects utilizing Machine Learning, with the aim of attaining 1000 users or generating $1000 in revenue.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Experience Item 2 -->
-                        <div class="col-12">
-                            <div class="experience-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="d-flex align-items-center mb-3">
-                                    <p class="fs-5 mb-0 me-4">Volunteer</p>
-                                    <div>
-                                        <span class="fa fa-calendar me-1"></span> Jan '17 - Aug '24
-                                    </div>
-                                </div>
-                                <h4 class="mb-3">BAPS Charities/BAPS South Africa</h4>
-                                <p class="mb-0">
-                                    <ul>
-                                        
-                                        <li>Managed operations at the PSM 100 event in India with 12M attendees, optimizing sales data to increase t-shirt and caps sales by 50%.</li>
-                                        <li>Supported diverse campaigns hosted by BAPS Charities, such as Winter Warmers, Food Distribution, and Special Needs School visits.</li>
-                                        <li>Contributed to organizing the 'Festival of Inspiration' in Johannesburg, South Africa, attended by over 25,000 people.</li>
-                                        <li>As Information Coordinator (Since 2021): Assisted in organizing weekly spiritual and educational sessions for youth aged 15-22 (Youth assembly), facilitated monthly interactive discussions on socio-spiritual growth, and maintained records of personal information and youth assembly attendance for each of the 35-40 youth members using Excel.</li>
-                                    </ul>
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Experience Item 3 -->
-                        <div class="col-12">
-                            <div class="experience-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.5s">
-                                <div class="d-flex align-items-center mb-3">
-                                    <p class="fs-5 mb-0 me-4">Manufacturing Process Trainee</p>
-                                    <div>
-                                        <span class="fa fa-calendar me-1"></span> Jan '20 - Aug '24
-                                    </div>
-                                </div>
-                                <h4 class="mb-3">Pavan Polycompounds & Masterbatch C.C</h4>
-                                <p class="mb-0">
-                                    <ul>
-                                        <li>Utilized Melt Flow Index, Ash content, and Impact testing methods and equipment to enhance plastic material quality, leading to a 10% surge in product market value.</li>
-                                        <li>Optimized machine outputs by adjusting settings and speed to achieve a 20% increase, aligning with standard production parameters.</li>
-                                    </ul>
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Experience Item 4 -->
-                        <div class="col-12">
-                            <div class="experience-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.7s">
-                                <div class="d-flex align-items-center mb-3">
-                                    <p class="fs-5 mb-0 me-4">Vacation Programme</p>
-                                    <div>
-                                        <span class="fa fa-calendar me-1"></span> Jul '23 - Jul '23
-                                    </div>
-                                </div>
-                                <h4 class="mb-3">Deloitte</h4>
-                                <p class="mb-0">
-                                    Participated in the highly selective Deloitte Youth Executive Programme, gaining valuable insights into auditing, taxation, and finance.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<nav>
+  <div class="nav-in">
+    <a href="#top" class="logo">K<b>P</b> · <span style="color:var(--muted);font-weight:400">selected work</span></a>
+    <div class="nav-links">
+      <a href="#building">building now</a><a href="#work">all projects</a>
+      <a href="https://github.com/K3val17" target="_blank" rel="noopener">github ↗</a>
     </div>
-</div>
-<!-- Experience End -->
+    <button class="toggle" id="themeToggle" aria-label="Toggle light and dark theme" title="Toggle theme">◐</button>
+  </div>
+</nav>
 
-
-
-        <<!-- Skills Start -->
-<div class="container-fluid" id="Skills">
-    <div class="container">
-        <div class="row g-0">
-            <!-- Left Side Column -->
-            <div class="col-lg-3">
-                <div class="skills-header h-100 bg-dark pt-6 pe-6 pb-6">
-                    <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                        <p class="text-white sub-title">Skills & Interests</p>
-                        <h1 class="display-6 text-white mb-0">My Skills and Interests</h1>
-                    </div>
-                </div>
-            </div>
-            <!-- Right Side Column -->
-            <div class="col-lg-9">
-                <div class="skills-content h-100 pt-6 ps-6 pb-6">
-                    <div class="row g-4">
-                        <!-- Technical Skills -->
-                        <div class="col-6 col-md-4 col-lg-4">
-                            <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="text-primary text-center mb-3"><span class="fas fa-code fa-3x"></span></div>
-                                <div class="counter-counting d-flex flex-column align-items-center">
-                                    <h4 class="display-6">Technical Skills</h4>
-                                    <p class="mb-0">Python, Java, TensorFlow, Delphi, Statistical Analysis, Data Visualization, Microsoft Office</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Soft Skills -->
-                        <div class="col-6 col-md-4 col-lg-4">
-                            <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="text-primary text-center mb-3"><span class="fas fa-users fa-3x"></span></div>
-                                <div class="counter-counting d-flex flex-column align-items-center">
-                                    <h4 class="display-6">Soft Skills</h4>
-                                    <p class="mb-0">Problem-Solving, Teamwork, Leadership, Communication, Adaptability</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Interests -->
-                        <div class="col-6 col-md-4 col-lg-4">
-                            <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.5s">
-                                <div class="text-primary text-center mb-3"><span class="fas fa-heart fa-3x"></span></div>
-                                <div class="counter-counting d-flex flex-column align-items-center">
-                                    <h4 class="display-6">Interests</h4>
-                                    <p class="mb-0">Research and Innovation, Reading, Sustainability, Cricket, Soccer, Padel, Volunteering at the temple</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Add more sections here if needed -->
-                    </div>
-                </div>
-            </div>
-        </div>
+<a id="top"></a>
+<header class="hero">
+  <canvas id="scope"></canvas>
+  <div class="wrap hero-in">
+    <div class="eyebrow">Selected engineering work</div>
+    <h1>Keval Patel</h1>
+    <p class="hero-sub">I build systems that have to be <b>right</b>. Exactly-once engines proven under millions of simulated crashes, agentic research brains, quantitative trading tools measured in nanoseconds, and a healthcare data platform for emerging markets. The instinct underneath is always the same: <b>quantify the uncertainty, then prove the guarantee.</b></p>
+    <div class="roles">
+      <span class="role"><b>Targeting:</b> Software Engineering</span>
+      <span class="role">ML Engineering</span>
+      <span class="role">Systems Engineering</span>
     </div>
-</div>
-<!-- Skills End -->
-
-
-    <!-- Portfolio Start -->
-<div class="container-fluid">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-lg-3">
-                <div class="portfolio-header h-100 bg-dark pt-6 pe-6 pb-6">
-                    <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                        <p class="text-white sub-title">Portfolio</p>
-                        <h1 class="display-6 text-white mb-0">My Recent Works</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="portfolio-content h-100 pt-6 ps-6 pb-6">
-                    <!-- Placeholder content -->
-                    <div class="portfolio-item py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="row g-4 align-items-center">
-                            <div class="col-12">
-                                <h2 class="text-center">Coming Soon</h2>
-                                <p class="text-center">Stay tuned for updates on my latest projects!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="hero-cta">
+      <a class="btn solid" href="#building">▸ What I'm building</a>
+      <a class="btn" href="#work">All projects</a>
+      <a class="btn" href="https://github.com/K3val17" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
-</div>
-<!-- Portfolio End -->
 
-
- <!-- Contact Start -->
-<div class="container-fluid" id="pigraContact">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-lg-3">
-                <div class="contact-header h-100 bg-dark pt-6 pe-6 pb-6">
-                    <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                        <p class="text-white sub-title">Contact Me</p>
-                        <h1 class="display-6 text-white mb-0">Let’s Start A New Project</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="contact-content h-100 pt-6 ps-6 pb-6">
-                    <div class="bg-light p-4">
-                        <div class="row g-3">
-                            <!-- Contact Form -->
-                            <div class="col-12 wow fadeInUp" data-wow-delay="0.3s">
-                                <form>
-                                    <div class="row g-3">
-                                        <div class="col-lg-6">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control" id="name" placeholder="Your Name" style="width: 100%;">
-                                                <label for="name">Your Name</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-floating">
-                                                <input type="email" class="form-control" id="email" placeholder="Your Email" style="width: 100%;">
-                                                <label for="email">Your Email</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-floating">
-                                                <input type="phone" class="form-control" id="phone" placeholder="Phone" style="width: 100%;">
-                                                <label for="phone">Your Phone</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control" id="project" placeholder="Project" style="width: 100%;">
-                                                <label for="project">Your Project</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control" id="subject" placeholder="Subject" style="width: 100%;">
-                                                <label for="subject">Subject</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-floating">
-                                                <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 120px; width: 100%;"></textarea>
-                                                <label for="message">Message</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <!-- Map -->
-                            <div class="col-12 wow fadeInUp" data-wow-delay="0.5s">
-                                <div class="rounded">
-                                    <iframe class="rounded w-100" 
-                                    style="height: 400px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6974881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1694259649153!5m2!1sen!2sbd" 
-                                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="readouts" id="readouts">
+      <div class="ro"><div class="k" data-to="10">0</div><div class="l">Systems shipped</div></div>
+      <div class="ro"><div class="k" data-to="560"><span class="u">+</span>0</div><div class="l">Tests written</div></div>
+      <div class="ro"><div class="k">4</div><div class="l">Domains</div></div>
+      <div class="ro"><div class="k">Rust · Py · Go</div><div class="l">Core stack</div></div>
     </div>
-</div>
-<!-- Contact End -->
+  </div>
+</header>
 
+<div class="wrap"><div class="divider"></div></div>
 
-<!-- Footer Start -->
-<div class="container-fluid footer bg-dark border-bottom-0">
-    <div class="container wow fadeIn" data-wow-delay="0.1s">
-        <div class="row g-0">
-            <div class="col-12">
-                <div class="footer-content h-100 pt-6 ps-6 pb-6">
-                    <div class="row g-4 align-items-center">
-                        <div class="col-12 text-center">
-                            <div class="d-flex justify-content-center">
-                                <!-- Updated Social Media Icons -->
-                                <a class="btn btn-light btn-md-square me-3" href="https://www.instagram.com/_.kevalll._?igsh=MTZ3bzA5cm16NnF6dg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-light btn-md-square me-3" href="https://www.linkedin.com/in/keval-patel-01965a17b/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                                <a class="btn btn-light btn-md-square me-0" href="https://github.com/K3val17" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-12 text-center">
-                            <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-body me-2"></i>Keval Patel</a>, All rights reserved.</span>
-                        </div>
-                        <div class="col-12 text-center text-body">
-                            Designed By <a class="border-bottom text-white" href="https://htmlcodex.com">HTML Codex</a>
-                        </div>
-                    </div>
-                </div>        
-            </div>
-        </div>
+<!-- ============ BUILDING NOW ============ -->
+<section id="building">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-idx">01 / BUILDING NOW</span>
+      <h2>What I'm most proud of</h2>
+      <div class="note">Two systems in active development, aimed at reliability and at emerging markets.</div>
     </div>
-</div>
-<!-- Footer End -->
+    <div class="feat-grid">
 
+      <article class="feat rv">
+        <div class="badge"><span class="dot"></span> In active development</div>
+        <h3>Onced</h3>
+        <div class="p-tag">exactly-once effect engine + abuse defense · Rust</div>
+        <p class="desc">A drop-in gateway that makes a write happen exactly once no matter how many times a client retries — the reliability primitive that payment systems rebuild by hand, pulled out as open infrastructure. Crash-safe write-ahead log, tamper-evident hash chain, and a fraud toolkit, proven by a deterministic simulation that replays any failure from a seed. Open source and still growing.</p>
+        <div class="metrics">
+          <div class="metric"><div class="mv">11.8k</div><div class="ml">req/s</div></div>
+          <div class="metric"><div class="mv">119</div><div class="ml">tests</div></div>
+          <div class="metric"><div class="mv">0</div><div class="ml">core deps</div></div>
+          <div class="metric"><div class="mv">421×</div><div class="ml">durability gain</div></div>
+        </div>
+        <div class="card-links" style="margin-top:18px"><a href="https://github.com/K3val17/onced" target="_blank" rel="noopener">github ↗</a><span class="ff">Apache-2.0 · public</span></div>
+      </article>
 
+      <article class="feat rv">
+        <div class="badge"><span class="dot"></span> In active development</div>
+        <h3>Sonke Health</h3>
+        <div class="p-tag">healthcare data platform for emerging markets · FHIR</div>
+        <p class="desc">A patient-owned health-records platform built for South-African clinics: a real FHIR backend with SMART-on-FHIR consent, scope-based access control, a SHA-256-chained tamper-evident audit log, and an offline-first queue for low-connectivity settings. Part of a three-product venture for underserved markets, alongside a careers platform and a fintech tool. Designed so a patient controls who sees their record.</p>
+        <div class="metrics">
+          <div class="metric"><div class="mv">90</div><div class="ml">TDD tests</div></div>
+          <div class="metric"><div class="mv">FHIR</div><div class="ml">+ SMART auth</div></div>
+          <div class="metric"><div class="mv">SHA-256</div><div class="ml">audit chain</div></div>
+          <div class="metric"><div class="mv">offline</div><div class="ml">first</div></div>
+        </div>
+        <div class="card-links" style="margin-top:18px"><span class="ff">private · in development</span></div>
+      </article>
 
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
+    </div>
+  </div>
+</section>
 
-        
-        <!-- JavaScript Libraries -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/wow/wow.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/counterup/counterup.min.js"></script>
-        <script src="lib/lightbox/js/lightbox.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        
+<div class="wrap"><div class="divider"></div></div>
 
-        <!-- Template Javascript -->
-        <script src="js/main.js"></script>
-    </body>
+<!-- ============ ALL PROJECTS ============ -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-idx">02 / PORTFOLIO</span>
+      <h2>Systems &amp; research</h2>
+      <div class="note">Every card carries a live readout of what the system actually does. Filter by domain.</div>
+    </div>
 
+    <div class="filters rv" id="filters">
+      <button class="chip on" data-f="all">all</button>
+      <button class="chip" data-f="systems">systems</button>
+      <button class="chip" data-f="quant">quant</button>
+      <button class="chip" data-f="ai">agentic ai</button>
+      <button class="chip" data-f="applied">applied</button>
+    </div>
+
+    <div class="grid" id="grid">
+
+      <article class="card rv" data-domain="systems">
+        <div class="card-top"><span class="p-idx">P-01</span><span class="p-domain">Distributed Systems · Rust</span></div>
+        <h3>Onced</h3>
+        <div class="p-tag">exactly-once effect engine + abuse defense</div>
+        <p class="desc">A drop-in gateway that makes a write happen once no matter how many times a client retries. Crash-safe write-ahead log, tamper-evident hash chain, and a fraud toolkit — proven, not believed, by a deterministic simulation that replays any failure from a seed.</p>
+        <div class="viz" data-viz="throughput"><span class="vlabel">req/s · replay hot path</span><span class="vbig">11.8<span class="u">k</span> req/s</span></div>
+        <div class="metrics">
+          <div class="metric"><div class="mv">26.5 ns</div><div class="ml">per op</div></div>
+          <div class="metric"><div class="mv">119</div><div class="ml">tests</div></div>
+          <div class="metric"><div class="mv">0</div><div class="ml">core deps</div></div>
+        </div>
+        <div class="stack"><span>Rust</span><span>io_uring</span><span>WAL</span><span>SHA-256</span><span>sim-testing</span></div>
+        <div class="card-links"><a href="https://github.com/K3val17/onced" target="_blank" rel="noopener">github ↗</a><span class="ff">Apache-2.0 · public</span></div>
+      </article>
+
+      <article class="card rv" data-domain="ai">
+        <div class="card-top"><span class="p-idx">P-02</span><span class="p-domain">Agentic AI · Python</span></div>
+        <h3>Orrery</h3>
+        <div class="p-tag">agentic equity-research brain</div>
+        <p class="desc">An autonomous research system driven from the terminal: it builds a correlation network of the market, runs Black-Litterman allocation, screens factors, and writes the report. Sixteen composable skills, battle-tested live on the S&amp;P 100.</p>
+        <div class="viz" data-viz="mst"><span class="vlabel">mantegna correlation tree</span></div>
+        <div class="metrics">
+          <div class="metric"><div class="mv">16</div><div class="ml">agent skills</div></div>
+          <div class="metric"><div class="mv">74</div><div class="ml">tests</div></div>
+          <div class="metric"><div class="mv">S&amp;P 100</div><div class="ml">live universe</div></div>
+        </div>
+        <div class="stack"><span>Python</span><span>Black-Litterman</span><span>MST graphs</span><span>Claude Code</span></div>
+        <div class="card-links"><a href="https://github.com/K3val17/orrery" target="_blank" rel="noopener">github ↗</a><span class="ff">public</span></div>
+      </article>
+
+      <article class="card rv" data-domain="quant">
+        <div class="card-top"><span class="p-idx">P-03</span><span class="p-domain">Quant / Systems · Rust + Python</span></div>
+        <h3>Sextant</h3>
+        <div class="p-tag">autonomous algorithmic-trading engine</div>
+        <p class="desc">A paper-first trading engine: twelve alpha tools, six strategies, an event-driven backtester on free real data, and an execution core rewritten from O(n²) to O(n) — 620× faster, brushing the language's throughput ceiling.</p>
+        <div class="viz" data-viz="equity"><span class="vlabel">backtest equity curve</span><span class="vbig">3.8 <span class="u">ns</span>/trade</span></div>
+        <div class="metrics">
+          <div class="metric"><div class="mv">620×</div><div class="ml">exec speedup</div></div>
+          <div class="metric"><div class="mv">11.3 M</div><div class="ml">fills/sec</div></div>
+          <div class="metric"><div class="mv">120</div><div class="ml">tests</div></div>
+        </div>
+        <div class="stack"><span>Rust</span><span>Python</span><span>event-driven</span><span>backtester</span></div>
+        <div class="card-links"><span class="ff">private · paper-trading</span></div>
+      </article>
+
+      <article class="card rv" data-domain="quant">
+        <div class="card-top"><span class="p-idx">P-04</span><span class="p-domain">Quant / ML · Python</span></div>
+        <h3>Growth Sleeve Optimizer</h3>
+        <div class="p-tag">ML-ranked portfolio construction</div>
+        <p class="desc">A gradient-boosted model ranks a 57-name IPO and hyper-growth universe, correlation clustering removes redundancy, a Gaussian-mixture model reads the regime, and a Monte-Carlo backtest sizes the final book. Fifteen research agents in parallel.</p>
+        <div class="viz" data-viz="montecarlo"><span class="vlabel">monte-carlo paths</span><span class="vbig">IC +0.21</span></div>
+        <div class="metrics">
+          <div class="metric"><div class="mv">+174%</div><div class="ml">bt Sharpe vs SPY</div></div>
+          <div class="metric"><div class="mv">57→18</div><div class="ml">names screened</div></div>
+          <div class="metric"><div class="mv">15</div><div class="ml">research agents</div></div>
+        </div>
+        <div class="stack"><span>Python</span><span>gradient boosting</span><span>GMM</span><span>cvxpy</span></div>
+        <div class="card-links"><span class="ff">private · research</span></div>
+      </article>
+
+      <article class="card rv" data-domain="quant">
+        <div class="card-top"><span class="p-idx">P-05</span><span class="p-domain">Quant / Systems · Python</span></div>
+        <h3>Deuce</h3>
+        <div class="p-tag">prediction-market arbitrage engine</div>
+        <p class="desc">A tennis pricing and arbitrage engine on Kalshi, built in a clean hexagonal architecture so the strategy core never touches the exchange directly. Dry-run by default: it never risks capital it has not been told to.</p>
+        <div class="viz" data-viz="prob"><span class="vlabel">live win-probability</span><span class="vbig">arb Δ</span></div>
+        <div class="metrics">
+          <div class="metric"><div class="mv">100</div><div class="ml">tests</div></div>
+          <div class="metric"><div class="mv">hexagonal</div><div class="ml">architecture</div></div>
+          <div class="metric"><div class="mv">dry-run</div><div class="ml">safe default</div></div>
+        </div>
+        <div class="stack"><span>Python</span><span>ports &amp; adapters</span><span>Kalshi API</span><span>arb</span></div>
+        <div class="card-links"><a href="https://github.com/K3val17/deuce" target="_blank" rel="noopener">github ↗</a><span class="ff">public</span></div>
+      </article>
+
+      <article class="card rv" data-domain="quant">
+        <div class="card-top"><span class="p-idx">P-06</span><span class="p-domain">Data Systems · Python</span></div>
+        <h3>Market Dashboard</h3>
+        <div class="p-tag">multi-source research terminal</div>
+        <p class="desc">One terminal over six data feeds — FRED, EDGAR, Yahoo, Interactive Brokers, WRDS, and a historical archive — with portfolio tracking and regime stress tests. Built to give a student desk institutional-grade data at zero cost.</p>
+        <div class="viz" data-viz="candles"><span class="vlabel">regime-banded price</span></div>
+        <div class="metrics">
+          <div class="metric"><div class="mv">6</div><div class="ml">live connectors</div></div>
+          <div class="metric"><div class="mv">8</div><div class="ml">panels</div></div>
+          <div class="metric"><div class="mv">CRSP 1926+</div><div class="ml">via WRDS</div></div>
+        </div>
+        <div class="stack"><span>Python</span><span>Streamlit</span><span>FRED / EDGAR</span><span>IBKR API</span></div>
+        <div class="card-links"><a href="https://github.com/K3val17/market-dashboard" target="_blank" rel="noopener">github ↗</a><span class="ff">public</span></div>
+      </article>
+
+      <article class="card rv" data-domain="applied">
+        <div class="card-top"><span class="p-idx">P-07</span><span class="p-domain">Applied / Aerospace · Python</span></div>
+        <h3>Avionics Fault Detection</h3>
+        <div class="p-tag">sensor → anomaly → diagnosis</div>
+        <p class="desc">A vectorized ARINC-429 avionics-bus simulator with injectable faults and fault-propagation modelling, feeding a detection pipeline that turns a raw signal into a diagnosis. Streams millions of samples a second.</p>
+        <div class="viz" data-viz="signal"><span class="vlabel">arinc-429 signal · fault injected</span><span class="vbig">7.8<span class="u">M</span>/s</span></div>
+        <div class="metrics">
+          <div class="metric"><div class="mv">15–130×</div><div class="ml">speedup</div></div>
+          <div class="metric"><div class="mv">52</div><div class="ml">tests</div></div>
+          <div class="metric"><div class="mv">ARINC-429</div><div class="ml">bus model</div></div>
+        </div>
+        <div class="stack"><span>Python</span><span>NumPy</span><span>ARINC-429</span><span>anomaly detection</span></div>
+        <div class="card-links"><span class="ff">private · simulation</span></div>
+      </article>
+
+      <article class="card rv" data-domain="applied">
+        <div class="card-top"><span class="p-idx">P-08</span><span class="p-domain">Applied / OR · Python</span></div>
+        <h3>Airport-Ops Optimizer</h3>
+        <div class="p-tag">constraint solving + reinforcement learning</div>
+        <p class="desc">A gate-and-flow scheduler that pairs a CP-SAT constraint solver with a reinforcement-learning policy and a flow predictor. It re-plans a full airport's operations tens of thousands of times faster than real time.</p>
+        <div class="viz" data-viz="gantt"><span class="vlabel">gate schedule</span><span class="vbig">50<span class="u">k×</span> real-time</span></div>
+        <div class="metrics">
+          <div class="metric"><div class="mv">CP-SAT</div><div class="ml">+ RL policy</div></div>
+          <div class="metric"><div class="mv">97</div><div class="ml">tests</div></div>
+          <div class="metric"><div class="mv">50,000×</div><div class="ml">real-time</div></div>
+        </div>
+        <div class="stack"><span>Python</span><span>OR-Tools</span><span>reinforcement learning</span></div>
+        <div class="card-links"><span class="ff">private · optimization</span></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-cta rv">Let's build<br>something <a href="https://github.com/K3val17" target="_blank" rel="noopener">provably right ↗</a></div>
+    <div class="foot-links rv">
+      <a href="https://github.com/K3val17" target="_blank" rel="noopener">github.com/K3val17</a>
+      <a href="https://linkedin.com/in/keval-patel-01965a17b" target="_blank" rel="noopener">linkedin ↗</a>
+    </div>
+    <div class="foot-meta">Single file · no framework · hand-drawn visualizations · light / dark theme</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;}}
+
+  /* theme toggle */
+  var root=document.documentElement, tBtn=document.getElementById('themeToggle');
+  try{var saved=localStorage.getItem('kp-theme');if(saved)root.setAttribute('data-theme',saved);}catch(e){}
+  function icon(){tBtn.textContent = root.getAttribute('data-theme')==='light' ? '☀' : '◐';}
+  icon();
+  tBtn.addEventListener('click',function(){
+    var next = root.getAttribute('data-theme')==='light' ? 'dark' : 'light';
+    root.setAttribute('data-theme',next);icon();
+    try{localStorage.setItem('kp-theme',next);}catch(e){}
+  });
+
+  /* count-up readouts */
+  function countUp(el){
+    var to=parseFloat(el.getAttribute('data-to'));var dec=parseInt(el.getAttribute('data-dec')||'0');
+    var uSpan=el.querySelector('.u');var uHtml=uSpan?uSpan.outerHTML:'';
+    if(reduce){el.innerHTML=uHtml+to.toFixed(dec);return;}
+    var start=performance.now(),dur=1100;
+    function step(now){var p=Math.min(1,(now-start)/dur);var e=1-Math.pow(1-p,3);var v=(to*e).toFixed(dec);el.innerHTML=uHtml+v;if(p<1)requestAnimationFrame(step);}
+    requestAnimationFrame(step);
+  }
+  var roDone=false;
+  var roObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!roDone){roDone=true;document.querySelectorAll('#readouts .k[data-to]').forEach(countUp);}});},{threshold:.4});
+  roObs.observe(document.getElementById('readouts'));
+
+  /* reveal */
+  var rvObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');rvObs.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=Math.min(i%6*0.05,0.28)+'s';rvObs.observe(el);});
+
+  /* filter */
+  document.getElementById('filters').addEventListener('click',function(ev){
+    var b=ev.target.closest('.chip');if(!b)return;
+    this.querySelectorAll('.chip').forEach(function(c){c.classList.remove('on')});b.classList.add('on');
+    var f=b.getAttribute('data-f');
+    document.querySelectorAll('#grid .card').forEach(function(c){c.classList.toggle('flag-hidden', f!=='all' && c.getAttribute('data-domain')!==f);});
+  });
+
+  /* hero oscilloscope */
+  var cv=document.getElementById('scope');var ctx=cv.getContext('2d');var W,H,dpr;
+  function resize(){dpr=Math.min(2,window.devicePixelRatio||1);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}
+  resize();window.addEventListener('resize',resize);
+  var t=0;
+  function scope(){
+    ctx.clearRect(0,0,W,H);var midY=H*0.55;
+    for(var layer=0;layer<3;layer++){
+      ctx.beginPath();var amp=(28-layer*7)*(1+0.12*Math.sin(t*0.6));var op=[0.5,0.28,0.16][layer];
+      ctx.strokeStyle='rgba(232,178,58,'+op+')';ctx.lineWidth=layer===0?1.6:1;
+      for(var x=0;x<=W;x+=4){var xn=x/W;var y=midY+Math.sin(xn*9+t*(1.1+layer*0.2))*amp+Math.sin(xn*23+t*1.7)*amp*0.28+Math.sin(xn*3-t*0.5)*amp*0.5;if(x===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}
+      ctx.stroke();
+    }
+    var lx=W*(0.5+0.5*Math.sin(t*0.35));
+    var ly=midY+Math.sin((lx/W)*9+t*1.1)*28+Math.sin((lx/W)*23+t*1.7)*8+Math.sin((lx/W)*3-t*0.5)*14;
+    ctx.beginPath();ctx.arc(lx,ly,3,0,7);ctx.fillStyle='#E8B23A';ctx.fill();
+    ctx.beginPath();ctx.arc(lx,ly,8,0,7);ctx.fillStyle='rgba(232,178,58,.18)';ctx.fill();
+    t+=0.016;if(!reduce)requestAnimationFrame(scope);
+  }
+  if(reduce){ctx.strokeStyle='rgba(232,178,58,.35)';ctx.lineWidth=1.4;ctx.beginPath();for(var x=0;x<=W;x+=4){var y=H*0.55+Math.sin(x/W*9)*26+Math.sin(x/W*23)*7;if(x===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}ctx.stroke();}
+  else requestAnimationFrame(scope);
+
+  /* project mini-visuals */
+  var NS='http://www.w3.org/2000/svg';
+  function svg(w,h){var s=document.createElementNS(NS,'svg');s.setAttribute('viewBox','0 0 '+w+' '+h);s.setAttribute('preserveAspectRatio','none');return s;}
+  function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+  function gridLines(s,w,h){for(var i=1;i<4;i++){s.appendChild(el('line',{x1:0,y1:h*i/4,x2:w,y2:h*i/4,stroke:'rgba(140,160,185,.12)','stroke-width':.5}));}}
+  function drawPath(p,dur){var len=p.getTotalLength();p.style.strokeDasharray=len;p.style.strokeDashoffset=len;p.getBoundingClientRect();p.style.transition='stroke-dashoffset '+dur+'s cubic-bezier(.3,.7,.3,1)';p.style.strokeDashoffset=0;}
+  var builders={
+    throughput:function(box,w,h){var s=svg(w,h);gridLines(s,w,h);var rnd=mulberry32(7);var n=26,bw=w/n;
+      for(var i=0;i<n;i++){var v=(0.25+0.7*(i/n))*(0.7+0.3*rnd());var bh=v*h*0.8;var r=el('rect',{x:i*bw+1.2,y:h,width:bw-2.4,height:0,rx:1.5,fill:i>n-6?'#E8B23A':'#2896B0',opacity:i>n-6?0.95:0.7});s.appendChild(r);(function(r,bh,i){setTimeout(function(){r.style.transition='height .5s cubic-bezier(.3,.7,.3,1), y .5s cubic-bezier(.3,.7,.3,1)';r.setAttribute('height',bh);r.setAttribute('y',h-bh);},i*22);})(r,bh,i);}box.appendChild(s);},
+    mst:function(box,w,h){var s=svg(w,h);var rnd=mulberry32(11);var nodes=[];var N=13;for(var i=0;i<N;i++)nodes.push({x:8+rnd()*(w-16),y:12+rnd()*(h-20)});var edges=[];for(var i=1;i<N;i++){var best=0,bd=1e9;for(var j=0;j<i;j++){var d=(nodes[i].x-nodes[j].x)*(nodes[i].x-nodes[j].x)+(nodes[i].y-nodes[j].y)*(nodes[i].y-nodes[j].y);if(d<bd){bd=d;best=j;}}edges.push([i,best]);}edges.forEach(function(e,k){var a=nodes[e[0]],b=nodes[e[1]];var ln=el('line',{x1:a.x,y1:a.y,x2:a.x,y2:a.y,stroke:'#2896B0','stroke-width':1,opacity:.55});s.appendChild(ln);setTimeout(function(){ln.style.transition='all .4s ease';ln.setAttribute('x2',b.x);ln.setAttribute('y2',b.y);},120+k*40);});nodes.forEach(function(nd,k){var c=el('circle',{cx:nd.x,cy:nd.y,r:0,fill:k===0?'#E8B23A':'#4CC9E0'});s.appendChild(c);setTimeout(function(){c.style.transition='r .3s cubic-bezier(.2,1.4,.4,1)';c.setAttribute('r',k===0?3.6:2.4);},120+k*35);});box.appendChild(s);},
+    equity:function(box,w,h){var s=svg(w,h);gridLines(s,w,h);var rnd=mulberry32(3);var n=64,pts=[],v=0.15;for(var i=0;i<n;i++){v+=(rnd()-0.42)*0.02;v=Math.max(0.05,v);pts.push(v);}var d='';for(var i=0;i<n;i++){var x=i/(n-1)*w;var val=0.12+(pts[i])+i/n*0.55;var y=h-val*h*0.72;d+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)+' ';}var area=el('path',{d:d+'L'+w+' '+h+' L0 '+h+' Z',fill:'url(#eqg)',opacity:.0});var defs=el('defs',{});var lg=el('linearGradient',{id:'eqg',x1:0,y1:0,x2:0,y2:1});lg.appendChild(el('stop',{offset:0,'stop-color':'#33A46E','stop-opacity':.32}));lg.appendChild(el('stop',{offset:1,'stop-color':'#33A46E','stop-opacity':0}));defs.appendChild(lg);s.appendChild(defs);s.appendChild(area);var p=el('path',{d:d,fill:'none',stroke:'#33A46E','stroke-width':1.8});s.appendChild(p);box.appendChild(s);drawPath(p,1.3);setTimeout(function(){area.style.transition='opacity .8s';area.setAttribute('opacity','1');},500);},
+    montecarlo:function(box,w,h){var s=svg(w,h);gridLines(s,w,h);var paths=22,n=40;for(var k=0;k<paths;k++){var rnd=mulberry32(100+k);var v=0.5,d='';for(var i=0;i<n;i++){v+=(rnd()-0.5)*0.06;var x=i/(n-1)*w;var y=h*(1-Math.max(0.05,Math.min(.95,v*0.5+0.1+i/n*0.35)));d+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)+' ';}var pp=el('path',{d:d,fill:'none',stroke:k%3===0?'#7E63CC':'#2896B0','stroke-width':.7,opacity:0});s.appendChild(pp);(function(pp,k){setTimeout(function(){pp.style.transition='opacity .5s';pp.setAttribute('opacity',.22);},k*30);})(pp,k);}var rnd=mulberry32(5),v=0.5,dm='';for(var i=0;i<n;i++){v+=(rnd()-0.48)*0.02;var x=i/(n-1)*w;var y=h*(1-(0.15+i/n*0.5));dm+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)+' ';}var pm=el('path',{d:dm,fill:'none',stroke:'#E8B23A','stroke-width':1.8});s.appendChild(pm);box.appendChild(s);drawPath(pm,1.4);},
+    prob:function(box,w,h){var s=svg(w,h);s.appendChild(el('line',{x1:0,y1:h/2,x2:w,y2:h/2,stroke:'rgba(232,178,58,.35)','stroke-width':.7,'stroke-dasharray':'3 3'}));var rnd=mulberry32(9),n=52,v=0.5,d='';for(var i=0;i<n;i++){v+=(rnd()-0.5)*0.12;v=Math.max(0.08,Math.min(.92,v));var x=i/(n-1)*w;var y=h*(1-v);d+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)+' ';}var p=el('path',{d:d,fill:'none',stroke:'#4CC9E0','stroke-width':1.6});s.appendChild(p);box.appendChild(s);drawPath(p,1.3);},
+    candles:function(box,w,h){var s=svg(w,h);gridLines(s,w,h);var rnd=mulberry32(21);var n=22,cw=w/n;var v=h*0.5;s.appendChild(el('rect',{x:w*0.55,y:0,width:w*0.45,height:h,fill:'rgba(210,90,70,.08)'}));s.appendChild(el('rect',{x:0,y:0,width:w*0.55,height:h,fill:'rgba(51,164,110,.07)'}));for(var i=0;i<n;i++){var o=v;v+=(rnd()-0.5)*10;var c=v;var hi=Math.min(o,c)-rnd()*7-2;var lo=Math.max(o,c)+rnd()*7+2;var x=i*cw+cw/2;var up=c<o;var col=up?'#33A46E':'#D25A46';var wick=el('line',{x1:x,y1:hi,x2:x,y2:lo,stroke:col,'stroke-width':.8,opacity:0});s.appendChild(wick);var body=el('rect',{x:i*cw+1.5,y:Math.min(o,c),width:cw-3,height:Math.max(2,Math.abs(c-o)),fill:col,opacity:0,rx:.6});s.appendChild(body);(function(wk,bd,i){setTimeout(function(){wk.style.transition=bd.style.transition='opacity .3s';wk.setAttribute('opacity','.7');bd.setAttribute('opacity','.9');},i*28);})(wick,body,i);}box.appendChild(s);},
+    signal:function(box,w,h){var s=svg(w,h);gridLines(s,w,h);var n=120,d='';var faultA=Math.floor(n*0.6),faultB=faultA+6;for(var i=0;i<n;i++){var x=i/(n-1)*w;var base=Math.sin(i*0.5)*0.5;var y;if(i>=faultA&&i<=faultB){y=h*0.5-(0.5-((i-faultA)%2))*h*0.8;}else{y=h*0.5-base*h*0.32;}d+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)+' ';}var p=el('path',{d:d,fill:'none',stroke:'#4CC9E0','stroke-width':1.3});s.appendChild(p);var mx=faultA/(n-1)*w;var box2=el('rect',{x:mx-2,y:4,width:(faultB-faultA)/(n-1)*w+4,height:h-8,fill:'none',stroke:'#D25A46','stroke-width':1,'stroke-dasharray':'2 2',opacity:0,rx:2});s.appendChild(box2);box.appendChild(s);drawPath(p,1.5);setTimeout(function(){box2.style.transition='opacity .5s';box2.setAttribute('opacity','.9');},1100);},
+    gantt:function(box,w,h){var s=svg(w,h);var lanes=4,rnd=mulberry32(31);var lh=h/lanes;var cols=['#2896B0','#7E63CC','#33A46E','#E8B23A'];for(var l=0;l<lanes;l++){var x=2;while(x<w-14){var bw=10+rnd()*38;if(x+bw>w-2)bw=w-2-x;var r=el('rect',{x:x,y:l*lh+lh*0.22,width:0,height:lh*0.56,rx:2,fill:cols[l],opacity:.82});s.appendChild(r);(function(r,bw,d){setTimeout(function(){r.style.transition='width .4s cubic-bezier(.3,.7,.3,1)';r.setAttribute('width',bw);},d);})(r,bw,(l*3+x/22)*30);x+=bw+4+rnd()*8;}}box.appendChild(s);}
+  };
+  var vizObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var box=e.target;var kind=box.getAttribute('data-viz');if(builders[kind]){var w=box.clientWidth||300,hh=box.clientHeight||96;builders[kind](box,w,hh);}vizObs.unobserve(box);}});},{threshold:.3});
+  document.querySelectorAll('.viz[data-viz]').forEach(function(v){vizObs.observe(v);});
+})();
+</script>
+</body>
 </html>
